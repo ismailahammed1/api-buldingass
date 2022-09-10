@@ -21,15 +21,21 @@ const dinamicItemValue = () => {
 dinamicItemValue()
 const setAllMenu = async () => {
     const data = await loadALlNews();
-    const AllMenu = document.getElementById('New-menu')
+    const AllMenu = document.getElementById('menu')
 
     for (const NewsItem of data.data.news_category) {
         /*--------------create menu--------------*/
         if (uniqueArray.indexOf(NewsItem.category_name) === -1) {
             uniqueArray.push(NewsItem.category_name);
             const ul = document.createElement('ul');
-            ul.innerHTML = `<span onclick= "menubar('${NewsItem.category_id}')" class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:text-black dark-mode:focus:text-black dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-              >${NewsItem.category_name}</span>`;
+            ul.classList.add('pt-4', 'text-base', 'text-gray-700',
+                'md:flex',
+                'md:justify-between',
+                'md:pt-0')
+            ul.innerHTML = `<li>
+                        <a onclick= "menubar('${NewsItem.category_id}')" class="md:p-4 py-2 block hover:text-purple-400" href="#">${NewsItem.category_name}</a>
+                    </li>
+              `;
             AllMenu.appendChild(ul)
         }
     }
@@ -78,7 +84,7 @@ const diplayNews = allNews => {
                     <p class="text-gray-600">${news.total_view}</p>
                 </div>
             </div>
-            <div class="flex items-center md:d-none">
+            <div class="flex items-center hidden md:block">
                 <div class="flex items-center">
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
@@ -182,9 +188,10 @@ const diplayNews = allNews => {
 //     return new (b.date) - new (a.date);
 // });
 // loadALlNews()
-function toggleModal(modalID) {
-    document.getElementById(modalID).classList.toggle("hidden");
-    document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
-    document.getElementById(modalID).classList.toggle("flex");
-    document.getElementById(modalID + "-backdrop").classList.toggle("flex");
-}
+const button = document.querySelector('#menu-button');
+const menu = document.querySelector('#menu');
+
+
+button.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+});

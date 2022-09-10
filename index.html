@@ -7,72 +7,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cickzone News</title>
     <!---------daisyUI---tailwind css--------->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https:cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https:cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
-    <script src="https:cdn.tailwindcss.com"></script>
-    <script src="https:cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+
 </head>
 
 <body>
     <header>
 
-
-        <div class="w-full text-gray-700 grid-cols-2 bg-warning dark-mode:text-gray-200 dark-mode:bg-gray-800">
-            <div x-data="{ open: false }"
-                class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-                <div class="navbar normal-case text-2xl  border-gray-900 ml-1 ">
-                    <div class="flex-1 ">
-                        <a class="btn btn-ghost normal-case text-xl">Cickzone News</a>
-                    </div>
-                    <div class="flex-none">
-                        <ul class="menu menu-horizontal p-0">
-                            <li><a class="">News</a></li>
-                            <li tabindex="0">
-                                <a href="Blog.html">Blog</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="navbar flex justify-between normal-case text-2xl  border-gray-900 ml-1 bg-warning mx-9">
+            <div class="flex-1 mx-9 ">
+                <a class="btn btn-ghost normal-case text-xl">Cickzone News</a>
             </div>
-            </nav>
+            <div class="flex justify-items-end  w-78">
+                <ul class="menu menu-horizontal flex justify-between p-0">
+                    <li><a class="pr-9">News</a></li>
+                    <li tabindex="0">
+                        <a href="Blog.html">Blog</a>
+                    </li>
+                </ul>
+            </div>
         </div>
 
 
         <!-------------------------News Menu Bar------------------------->
 
+        <nav class="
+            flex flex-wrap
+            items-center
+            justify-center
+            w-full
+            py-4
+            md:py-0
+            px-4
+            text-lg text-gray-700
+            bg-white
+          ">
+            <svg xmlns="http://www.w3.org/2000/svg" id="menu-button"
+                class="h-6 w-6 cursor-pointer md:hidden block justify-start" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
 
-        <div class="w-full text-gray-700 mt-3 dark-mode:text-gray-200 ">
-            <div x-data="{ open: false }"
-                class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-                <div class="p-4 flex flex-row items-center justify-between">
-                    <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline bg-warning "
-                        @click="open = !open">
-                        <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
-                            <path x-show="!open" fill-rule="evenodd"
-                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
-                                clip-rule="evenodd"></path>
-                            <path x-show="open" fill-rule="evenodd"
-                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                </div>
-                <nav id="New-menu" :class="{'flex': open, 'hidden': !open}"
-                    class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-center md:flex-row">
-                    <ul>
-                        <a class="px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:text-black dark-mode:focus:text-black dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                            href="#">Home</a>
+            <div class="hidden w-full md:flex md:items-center md:w-auto justify-center " id="menu">
+                <ul class="
+                pt-4
+                text-base text-gray-700
+                md:flex
+                md:justify-between 
+                md:pt-0">
 
-                    </ul>
-
-                </nav>
+                </ul>
             </div>
-
-        </div>
+        </nav>
     </header>
+
+
     <!-- <progress id="spinner" class="progress w-full hidden"></progress> -->
 
     <section>
@@ -107,22 +102,6 @@
             class="p-10 grid w-full grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1  gap-5">
 
         </div>
-        <section id="loder" class="hidden m-9">
-            <div class="text-center">
-                <div role="status">
-                    <svg class="inline mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
-                        viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                            fill="currentColor" />
-                        <path
-                            d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                            fill="currentFill" />
-                    </svg>
-                    <span class="sr-only">Loading...</span>
-                </div>
-            </div>
-        </section>
     </section>
     <script src="js/app.js"></script>
 </body>
