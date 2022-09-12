@@ -112,15 +112,7 @@ const diplayNews = allNews => {
   </div>
   </label>
 </div>
-        
-   
-    
-          
- 
-        
             <!-- Button trigger modal -->
-  
-
               <!-- Put this part before </body> tag -->
               <input type="checkbox" id="my-modal-6" class="modal-toggle" />
               <div class="modal modal-bottom sm:modal-middle">
