@@ -43,16 +43,16 @@ const setAllMenu = async () => {
 setAllMenu();
 const menubar = (category_id) => {
     // console.log(category_id);
+
     fetch(`https://openapi.programming-hero.com/api/news/category/${category_id}`)
         .then(res => res.json())
         .then(data => diplayNews(data.data))
 
+    toggleSpinner(true);
 }
 // menubar()
 const toggleSpinner = isLoading => {
     const loaderSection = document.getElementById("spinner");
-    loaderSection.classList.remove('hidden')
-
     if (isLoading) {
         loaderSection.classList.remove('hidden')
     }
@@ -61,7 +61,7 @@ const toggleSpinner = isLoading => {
     }
 }
 const diplayNews = allNews => {
-    toggleSpinner(true);
+
     // const loaderSection = document.getElementById("spinner");
     // loaderSection.classList.remove('hidden')
     const newsContainer = document.getElementById('news-container')
@@ -69,7 +69,9 @@ const diplayNews = allNews => {
     newsContainer.innerHTML = '';
     const value = document.getElementById("dinamic-Velue")
     value.innerText = allNews.length;
-
+    allNews.sort((a, b) => {
+        return b.total_view - a.total_view;
+    });
     allNews.forEach(news => {
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('w-full', 'lg:max-w-full', 'lg:flex');
@@ -163,20 +165,15 @@ const diplayNews = allNews => {
               </div>
     `
         newsContainer.appendChild(newsDiv);
-        toggleSpinner(false);
-    });
 
+    });
+    toggleSpinner(false);
 }
 
 
 
 /*-------------value pass */
 
-// array.sort(function (a, b) {
-//     // Turn your strings into dates, and then subtract them
-//     // to get a value that is either negative, positive, or zero.
-//     return new (b.date) - new (a.date);
-// });
 // loadALlNews()
 const button = document.querySelector('#menu-button');
 const menu = document.querySelector('#menu');
