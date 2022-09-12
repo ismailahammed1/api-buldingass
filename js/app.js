@@ -44,10 +44,12 @@ setAllMenu();
 const menubar = (category_id) => {
     // console.log(category_id);
 
-    fetch(`https://openapi.programming-hero.com/api/news/category/${category_id}`)
-        .then(res => res.json())
-        .then(data => diplayNews(data.data))
+    setTimeout(() => {
+        fetch(`https://openapi.programming-hero.com/api/news/category/${category_id}`)
+            .then(res => res.json())
+            .then(data => diplayNews(data.data))
 
+    }, 3000);
     toggleSpinner(true);
 }
 // menubar()
