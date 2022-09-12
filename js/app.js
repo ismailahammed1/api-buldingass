@@ -12,7 +12,6 @@ const loadALlNews = async () => {
 }
 /*-------------- menu & catagory select--------------*/
 const uniqueArray = [];
-console.log(uniqueArray.length);
 const dinamicItemValue = () => {
     // const value = document.getElementById("dinamic-Velue")
     // value.innerText = uniqueArray.length;
@@ -50,14 +49,27 @@ const menubar = (category_id) => {
 
 }
 // menubar()
+const toggleSpinner = isLoading => {
+    const loaderSection = document.getElementById("spinner");
+    loaderSection.classList.remove('hidden')
 
+    if (isLoading) {
+        loaderSection.classList.remove('hidden')
+    }
+    else {
+        loaderSection.classList.add('hidden')
+    }
+}
 const diplayNews = allNews => {
-
+    toggleSpinner(true);
+    // const loaderSection = document.getElementById("spinner");
+    // loaderSection.classList.remove('hidden')
     const newsContainer = document.getElementById('news-container')
 
     newsContainer.innerHTML = '';
     const value = document.getElementById("dinamic-Velue")
     value.innerText = allNews.length;
+
     allNews.forEach(news => {
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('w-full', 'lg:max-w-full', 'lg:flex');
@@ -151,20 +163,10 @@ const diplayNews = allNews => {
               </div>
     `
         newsContainer.appendChild(newsDiv);
-
+        toggleSpinner(false);
     });
 
 }
-/*-------------Spiner section-------------------*/
-// const toggleSpinner = isLoading => {
-//     const loaderSection = document.getElementById('loader');
-//     if (isLoading) {
-//         loaderSection.classList.remove('hidden')
-//     }
-//     else {
-//         loaderSection.classList.add('hidden')
-//     }
-// }
 
 
 
